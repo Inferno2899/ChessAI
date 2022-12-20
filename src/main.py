@@ -4,7 +4,7 @@ import pygame
 from pygame.surface import Surface
 
 from board import Board
-from const import HEIGHT, SQSIZE, WIDTH
+from const import FPS, HEIGHT, SQSIZE, WIDTH
 from descriptor import Descriptor
 from dragger import Dragger
 from game import Game
@@ -30,6 +30,7 @@ class Main:
         game: Game = self.game
         board: Board = self.game.board
         dragger: Dragger = self.game.dragger
+        clock = pygame.time.Clock()
 
         while True:
             # show methods
@@ -138,7 +139,9 @@ class Main:
                     sys.exit()
 
             pygame.display.update()
+            clock.tick(FPS)
 
 
-main = Main()
-main.mainloop()
+if __name__ == "__main__":
+    main = Main()
+    main.mainloop()

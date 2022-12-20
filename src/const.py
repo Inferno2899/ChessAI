@@ -8,3 +8,6 @@ HEIGHT: Final = 800
 ROWS: Final = 8
 COLS: Final = 8
 SQSIZE: Final = WIDTH // COLS
+
+# Frames per second
+FPS: Final = 30
