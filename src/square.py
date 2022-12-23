@@ -1,8 +1,9 @@
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import Final, Literal, Optional
 
 from descriptor import Descriptor
+from piece import Piece
 
 
 class Square:
@@ -12,7 +13,7 @@ class Square:
     piece = Descriptor()
     alphacol = Descriptor()
 
-    __ALPHACOLS: dict[int, str] = {
+    __ALPHACOLS: Final = {
         0: 'a',
         1: 'b',
         2: 'c',
@@ -23,14 +24,18 @@ class Square:
         7: 'h'
     }
 
-    def __init__(self, row: int, col: int, piece: Any = None) -> None:
-        self.row: int | Descriptor = row
-        self.col: int | Descriptor = col
-        self.piece: Any = piece
-        self.alphacol: str | Descriptor = self.__ALPHACOLS[self.col]
+    def __init__(self, row: int, col: int,
+                 piece: Optional[Piece] = None) -> None:
+        self.row = row
+        self.col = col
+        self.piece = piece
+        self.alphacol = self.__ALPHACOLS[self.col]
 
-    def __eq__(self, other: Any) -> bool:
-        return self.row == other.row and self.col == other.col
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, Square):
+            return self.row == other.row and self.col == other.col
+        else:
+            raise NotImplementedError
 
     def has_piece(self) -> bool:
         return self.piece is not None

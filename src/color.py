@@ -1,4 +1,5 @@
 from descriptor import Descriptor
+from my_types import RGB
 
 
 class Color:
@@ -6,6 +7,6 @@ class Color:
     light = Descriptor()
     dark = Descriptor()
 
-    def __init__(self, light: tuple[int, ...], dark: tuple[int, ...]) -> None:
-        self.light: tuple[int, ...] | Descriptor = light
-        self.dark: tuple[int, ...] | Descriptor = dark
+    def __init__(self, light: RGB, dark: RGB) -> None:
+        self.light = light
+        self.dark = dark

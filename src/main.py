@@ -19,10 +19,10 @@ class Main:
 
     def __init__(self) -> None:
         pygame.init()
-        self.screen: Surface | Descriptor = \
+        self.screen = \
             pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption('Chess')
-        self.game: Game | Descriptor = Game()
+        self.game = Game()
 
     def mainloop(self) -> None:
 

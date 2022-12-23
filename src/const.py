@@ -1,13 +1,13 @@
-from typing import Final
+from typing import Final, Literal
 
 # Screen dimensions
-WIDTH: Final = 800
-HEIGHT: Final = 800
+WIDTH: Final[Literal[800]] = 800
+HEIGHT: Final[Literal[800]] = 800
 
 # Board dimensions
-ROWS: Final = 8
-COLS: Final = 8
-SQSIZE: Final = WIDTH // COLS
+ROWS: Final[Literal[8]] = 8
+COLS: Final[Literal[8]] = 8
+SQSIZE: Final[int] = WIDTH // COLS
 
 # Frames per second
-FPS: Final = 30
+FPS: Final[Literal[30]] = 30
