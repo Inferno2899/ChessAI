@@ -1,12 +1,9 @@
 import sys
 
 import pygame
-from pygame.surface import Surface
 
-from board import Board
 from const import FPS, HEIGHT, SQSIZE, WIDTH
 from descriptor import Descriptor
-from dragger import Dragger
 from game import Game
 from move import Move
 from square import Square
@@ -26,10 +23,10 @@ class Main:
 
     def mainloop(self) -> None:
 
-        screen: Surface = self.screen
-        game: Game = self.game
-        board: Board = self.game.board
-        dragger: Dragger = self.game.dragger
+        screen = self.screen
+        game = self.game
+        board = self.game.board
+        dragger = self.game.dragger
         clock = pygame.time.Clock()
 
         while True:
